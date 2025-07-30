@@ -1,7 +1,6 @@
 name: Build SniperApp APK
 
 on:
-  # Cette ligne permet de lancer la compilation manuellement
   workflow_dispatch:
 
 jobs:
@@ -20,13 +19,13 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
-    # Étape 3: Lancer la compilation avec Buildozer
+    # Étape 3: Lancer la compilation avec la correction "Anti-Git"
     - name: Build with Buildozer
       uses: ArtemSBulgakov/buildozer-action@v1
       id: buildozer
       with:
         command: buildozer android debug
-        workdir: 
+        command_on_start: git config --global --unset-all http.https://github.com/.extraheader
         buildozer_version: master
 
     # Étape 4: Mettre en ligne l'APK une fois qu'il est prêt
@@ -35,3 +34,4 @@ jobs:
       with:
         name: sniperapp-apk
         path: bin/*.apk
+
