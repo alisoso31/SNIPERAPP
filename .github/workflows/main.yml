@@ -30,7 +30,7 @@ jobs:
 
     # Étape 4: Mettre en ligne l'APK une fois qu'il est prêt
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: sniperapp-apk
         path: bin/*.apk
