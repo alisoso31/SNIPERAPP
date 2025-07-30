@@ -26,6 +26,7 @@ jobs:
       id: buildozer
       with:
         command: buildozer android debug
+        workdir: 
         buildozer_version: master
 
     # Étape 4: Mettre en ligne l'APK une fois qu'il est prêt
